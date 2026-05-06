@@ -16,7 +16,7 @@ from utils import train_patch, setup_seed, output_metric, print_args, train_epoc
 
 # -------------------------------------------------------------------------------
 # Parameter Setting
-parser = argparse.ArgumentParser("GLT")
+parser = argparse.ArgumentParser("ACFFN")
 parser.add_argument('--gpu_id', default='0', help='gpu id')
 parser.add_argument('--seed', type=int, default=0, help='number of seed')
 parser.add_argument('--test_freq', type=int, default=5, help='number of evaluation')

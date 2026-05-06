@@ -168,7 +168,7 @@ def print_args(args):
         print("{0}: {1}".format(k, v))
 
 
-def train_epoch(model,train_loader, criterion, optimizer):#(model, dis_H,dis_L,train_loader, criterion, optimizer,loss_fun2,d_optimizer_H,d_optimizer_L):
+def train_epoch(model,train_loader, criterion, optimizer):
     objs = AverageMeter()
     top1 = AverageMeter()#(model,train_loader, criterion, optimizer):
     tar = np.array([])
@@ -181,33 +181,11 @@ def train_epoch(model,train_loader, criterion, optimizer):#(model, dis_H,dis_L,t
         optimizer.zero_grad()
         batch_pred = model(batch_data11, batch_data21 )
 
-        # fake_H, fake_L, batch_pred, output2, output3= model(batch_data11, batch_data21 )
-        #
+        
         loss = criterion(batch_pred, batch_target)
         loss.backward()
         optimizer.step()
-        # dis_H.zero_grad()
-        # fake_probability = dis_H(fake_H.view(fake_H.size(0),63, 16, 16))#mu64 2 hu144 1
-        # fake_probability = fake_probability.mean()
-        # real_probability = dis_H(batch_data11)
-        # real_probability = real_probability.mean()
-        # d_loss1 = 1 - real_probability + fake_probability
-        # d_loss1.backward(retain_graph=True)
-        # dis_L.zero_grad()
-        # fake_probability2 = dis_L(fake_L.view(fake_L.size(0), 1, 16, 16))
-        # fake_probability2 = fake_probability2.mean()
-        # real_probability2 = dis_L(batch_data21)
-        # real_probability2 = real_probability2.mean()
-        # d_loss2 = 1 - real_probability2 + fake_probability2  # -1 - real + fake
-        # d_loss2.backward(retain_graph=True)
-        # model.zero_grad()
-        # ce_loss = loss + loss_fun2(batch_pred, output2) + loss_fun2(batch_pred, output3)
-        # a_loss = 0.5 * torch.mean(1 - fake_probability) + 0.5 * torch.mean(1 - fake_probability2)
-        # g_loss = 0.01 * a_loss + ce_loss
-        # g_loss.backward()
-        # optimizer.step()
-        # d_optimizer_H.step()
-        # d_optimizer_L.step()
+        
 
 
         prec1, t, p = accuracy(batch_pred, batch_target, topk=(1,))

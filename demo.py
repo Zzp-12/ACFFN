@@ -7,7 +7,7 @@ import torch.utils.data as Data
 
 from scipy.io import loadmat
 import scipy.io as sio
-import TripNet
+import ACFFN
 import numpy as np
 import time
 import os
@@ -122,7 +122,7 @@ def train_1times():
         print("height2={0},width2={1},band2={2}".format(height2, width2, band2))
         # -------------------------------------------------------------------------------
         # create model
-        model=TripNet.SimpleCNN(args.num_classes, 128, band1, band2, ).cuda()
+        model=ACFFN.SimpleCNN(args.num_classes, 128, band1, band2, ).cuda()
         # criterion
         criterion = nn.CrossEntropyLoss().cuda()
         loss_fun2 = nn.MSELoss().cuda()

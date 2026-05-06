@@ -1,7 +1,3 @@
-# -*- coding:utf-8 -*-
-# @Time       :2022/9/7 上午9:57
-# @AUTHOR     :DingKexin
-# @FileName   :demo.py
 import datetime
 
 import torch
@@ -184,15 +180,7 @@ def train_1times():
             # generate_pic.generate_png(
             #     all_iter, model, y, args.dataset, 'cuda',
             #     all_indices)  # all_iter, net, gt_hsi, Dataset, device, total_indices,
-            # #tar_v, pre_v, features = valid_epoch(model, test_loader, criterion, 2)
 
-            # OA, AA, Kappa, CA = output_metric(tar_v, pre_v)
-            # print(OA)
-            # gt_test = TestLabel.numpy()
-            #
-            # print('gt_test', gt_test)
-            # print('test_indexes', len(gt_test))
-            # gt_test = torch.from_numpy(gt_test).long()
 
 
 
